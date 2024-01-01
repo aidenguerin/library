@@ -13,7 +13,21 @@ closeButton.addEventListener("click", () => {
     dialog.close();
 });
 
-closeButton.addEventListener
+const addBookForm = document.querySelector("#add-book");
+addBookForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const title = document.querySelector("#title").value;
+    const author = document.querySelector("#author").value;
+    const pages = document.querySelector("#pages").value;
+    const read = document.querySelector("#read").value;
+
+    const newBook = new Book(title, author, pages, read);
+
+    addBookToLibrary(newBook);
+    dialog.close()
+})
+
 
 function Book(title, author, pages, read) {
     this.title = title;
