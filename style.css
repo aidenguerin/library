@@ -3,9 +3,64 @@ html {
     color: hsl(0, 0%, 100%)
 }
 body {
-    background-color: hsl(0, 0%, 0%);
+    background-color: hsl(0, 0%, 10%);
     margin: 0;
     padding: 0;
+}
+
+::backdrop {
+    background-color: hsla(0, 0%, 0%, 0.2);
+    backdrop-filter: blur(0.2rem);
+  }
+
+dialog {
+    border: none;
+    opacity: 95%;
+    height: fit-content;
+    width: fit-content;
+}
+
+.dialog-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.dialog-container div {
+    display: flex;
+    justify-content: space-between;
+}
+
+#btn-exit-dialog {
+    font-size: 1.5rem;
+    color: black;
+    background-color: hsla(0, 0%, 0%, 0);
+    border-style: none;
+    align-self: flex-start;
+    height: fit-content;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
+
+form label {
+    margin-block: 0.7rem;
+}
+
+form input, form select {
+    margin-top: 5px;
+}
+
+form span {
+    display: block;
+}
+form button {
+    justify-self: flex-end;
+    
+    width: 200px;
+    margin-top: 2rem;
 }
 
 .wrapper {

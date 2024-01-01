@@ -12,6 +12,36 @@
             <h1>Library</h1>
             <button>Add Book +</button>
         </header>
+        <dialog>
+            <div class="dialog-container">
+                <div>
+                    <h2>Add a book</h2>
+                    <button id="btn-exit-dialog">x</button>
+                </div>
+                <form id="">
+                    <label for="title">
+                        <span>Title</span>
+                        <input type="text" name="title" id="title">
+                    </label>
+                    <label for="author">
+                        <span>Author</span>
+                        <input type="text" name="author" id="author">
+                    </label>
+                    <label for="pages">
+                        <span>Number of pages</span>
+                        <input type="number" name="pages" id="pages">
+                    </label>
+                    <label for="read">
+                        <span>Have you read this book?</span>
+                        <select name="read" id="read">
+                            <option value=true>Yes</option>
+                            <option value=false>No</option>
+                        </select>
+                    </label>
+                    <button type="submit">add to library</button>
+                </form>
+            </div>
+        </dialog>
         <div class="books-grid"></div>
     </div>
 

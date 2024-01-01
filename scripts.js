@@ -1,6 +1,20 @@
 const myLibrary = [];
 const booksGrid = document.querySelector(".books-grid");
 
+const dialog = document.querySelector("dialog");
+const showButton = document.querySelector("button");
+const closeButton = document.querySelector("#btn-exit-dialog");
+
+showButton.addEventListener("click", () => {
+    dialog.showModal();
+});
+
+closeButton.addEventListener("click", () => {
+    dialog.close();
+});
+
+closeButton.addEventListener
+
 function Book(title, author, pages, read) {
     this.title = title;
     this.author = author;
@@ -16,7 +30,20 @@ function addBookToLibrary(book) {
 
     const bookCard = document.createElement("div");
     bookCard.classList.add("card"); 
-    bookCard.innerText = book.info();
+
+    const cardTitle = document.createElement("h2");
+    cardTitle.innerText = book.title;
+
+    const cardAuthor = document.createElement("h3");
+    cardAuthor.innerText = book.author;
+
+    const cardPages = document.createElement("p");
+    cardPages.innerText = book.pages;
+
+    bookCard.appendChild(cardTitle);
+    bookCard.appendChild(cardAuthor);
+    bookCard.appendChild(cardPages);
     
     booksGrid.appendChild(bookCard);
 }   
+
