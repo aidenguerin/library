@@ -1,3 +1,4 @@
+let book_id = 0;
 const myLibrary = [];
 const booksGrid = document.querySelector(".books-grid");
 
@@ -17,19 +18,24 @@ const addBookForm = document.querySelector("#add-book");
 addBookForm.addEventListener('submit', function(e) {
     e.preventDefault();
 
+    const id = book_id;
+    book_id += 1;
+    
     const title = document.querySelector("#title").value;
     const author = document.querySelector("#author").value;
     const pages = document.querySelector("#pages").value;
     const read = document.querySelector("#read").value;
+    
 
-    const newBook = new Book(title, author, pages, read);
+    const newBook = new Book(id, title, author, pages, read);
 
     addBookToLibrary(newBook);
     dialog.close()
 })
 
 
-function Book(title, author, pages, read) {
+function Book(id, title, author, pages, read) {
+    this.id = id;
     this.title = title;
     this.author = author;
     this.pages = pages;
@@ -44,6 +50,7 @@ function addBookToLibrary(book) {
 
     const bookCard = document.createElement("div");
     bookCard.classList.add("card"); 
+    bookCard.dataset.title = book.title;
 
     const cardTitle = document.createElement("h2");
     cardTitle.innerText = book.title;
@@ -53,6 +60,7 @@ function addBookToLibrary(book) {
 
     const cardPages = document.createElement("p");
     cardPages.innerText = book.pages;
+
 
     bookCard.appendChild(cardTitle);
     bookCard.appendChild(cardAuthor);
