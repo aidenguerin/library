@@ -65,8 +65,7 @@ form button {
 }
 
 .wrapper {
-    width: 1000px;
-    margin: auto;
+    margin-inline: 2rem;
 }
 
 header {
