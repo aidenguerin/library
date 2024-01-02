@@ -50,9 +50,12 @@ function addBookToLibrary(book) {
 
     const bookCard = document.createElement("div");
     bookCard.classList.add("card"); 
+    book.read == "true" ? bookCard.classList.add('read') : bookCard.classList.add('unread');
+
     bookCard.dataset.title = book.title;
 
     const btnRemoveCard = document.createElement("button");
+    btnRemoveCard.id = "btn-remove-card";
     btnRemoveCard.innerHTML = "x";
 
     btnRemoveCard.addEventListener('click', (e) => {
@@ -69,12 +72,33 @@ function addBookToLibrary(book) {
     cardAuthor.innerText = book.author;
 
     const cardPages = document.createElement("p");
-    cardPages.innerText = book.pages;
+    cardPages.innerText = `${book.pages} pages`;
+
+    const cardToggleRead = document.createElement("button");
+    cardToggleRead.innerText = "mark as unread";
+    cardToggleRead.id = "btn-mark-read";
+
+    cardToggleRead.addEventListener('click', (e) => {
+        const button = e.target;
+        const card = button.parentNode;
+        const classes = [...card.classList];
+        // switch to unread
+        if (classes.includes("read")) {
+            card.classList.replace("read", "unread")
+            button.innerText = "mark as read";
+        }
+        // switch to read
+        else {
+            card.classList.replace("unread", "read")
+            button.innerText = "mark as unread"
+        }
+    });
 
     bookCard.appendChild(btnRemoveCard);
     bookCard.appendChild(cardTitle);
     bookCard.appendChild(cardAuthor);
     bookCard.appendChild(cardPages);
+    bookCard.appendChild(cardToggleRead);
     booksGrid.appendChild(bookCard);
 }   
 
@@ -97,3 +121,7 @@ function removeItemFromArray(arr, index) {
     return newArray
   }
 
+
+function markAsRead(element) {
+    console.log(element.classList)
+}

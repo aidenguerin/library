@@ -91,4 +91,30 @@ button {
     height: 200px;
     padding: 1rem;
     border-radius: 10px;
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.card h2, .card h3 {
+    margin: 0;
+}
+
+#btn-remove-card {
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: black;
+    background-color: hsla(0, 0%, 0%, 0);
+    border-style: none;
+    align-self: flex-end;
+    height: fit-content;
+}
+
+.read {
+    border-top: 5px solid palegreen;
+}
+
+.unread {
+    border-top: 5px solid palevioletred;
+    opacity: 0.6;
 }
